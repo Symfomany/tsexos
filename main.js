@@ -2,8 +2,27 @@
 // console.log( 'Coucou Webtech' );
 // const prenoms = ['Jean', 'Robert', 'Michel', 'Romain']
 // prenoms.map( ( elt ) => console.log( elt ) )
-exports.__esModule = true;
-var Animal_1 = require("./Animal");
+Object.defineProperty(exports, "__esModule", { value: true });
+var Administrateur_1 = require("./Administrateur");
+var Articles_1 = require("./Articles");
+var util_1 = require("./util");
+var artOne = new Articles_1.default(5);
+var artTwo = new Articles_1.default(2);
+var artThree = new Articles_1.default(3);
+var julien = new Administrateur_1.default("Boyer", "Julien", "julien@taiwa.fr", "12334566", new Date('1988-02-02'), "Lyon", true, { longitude: 23.2222, latitude: 2233 }, 1, 1, 1, 1, [artOne, artTwo, artThree], [util_1.permissions.ecriture, util_1.permissions.lecture, util_1.permissions.execution, util_1.permissions.removing]);
+console.log(julien.getAge());
+// alias 
+function printName(obj) {
+    console.log(obj.first);
+}
+// Both OK
+printName({ first: "Bob" });
+printName({ first: "Alice", last: "Alisson" });
+julien.modifyPerms("j.boyer69003@gmail.com", [util_1.permissions.ecriture, util_1.permissions.lecture]);
+console.log(julien);
+console.log("La moyenne est de " + julien.getMoyenneArticles() + " ");
+// console.log( julien )
+// import Animal from "./Animal"
 // const ages = [10, 22, 33, 44, 55];
 // const tabAges = ages.filter( ( elt ) => elt > 22 )
 // console.log( tabAges )
@@ -71,5 +90,54 @@ var Animal_1 = require("./Animal");
 // }
 // console.log( square( 23 ) )
 // console.log( square() )
-var chien = new Animal_1["default"](2, "vert");
-console.log(chien);
+// let chien = new Animal( 2, "vert" )
+// console.log( chien )
+// type alpha = {
+//     content: string
+// }
+// function err ( message: alpha ): never {
+//     throw new Error( message.content );
+// }
+// console.log( err( { content: "test" } ) )
+// function reverse ( s: String ): String {
+//     return s.split( "" ).reverse().join( "" );
+// }
+// reverse( "hello world" );
+// function greeter ( fn: ( a: string ) => void ) {
+//     fn( "Hello, World" );
+// }
+// function printToConsole ( s: string ) {
+//     console.log( s );
+// }
+// greeter( printToConsole );
+// function doSomething ( x: string | null ) {
+//     if ( x === null ) {
+//         // do nothing
+//         console.log( "Hello" )
+//     } else {
+//         console.log( "Hello, " + x.toUpperCase() );
+//     }
+// }
+// doSomething( "alpha" )
+// doSomething( null )
+// function compare (): "oui" | "non" {
+//     return "oui"
+// }
+// console.log( compare() )
+// function printText ( s: string, alignment: "left" | "right" | "center" ) {
+//     console.log( alignment)
+// }
+// printText( "G'day, mate", "center");
+// function printId ( id: number | string ) {
+//     console.log( "Your ID is: " + id );
+// }
+// // OK
+// printId( 101 );
+// // OK
+// printId( "202" );
+// function printName ( obj: { first: string; last?: string } ) {
+//     console.log( obj )
+// }
+// // Both OK
+// printName( { first: "Bob" } );
+// printName( { first: "Alice", last: "Alisson" } );

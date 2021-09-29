@@ -2,7 +2,38 @@
 // const prenoms = ['Jean', 'Robert', 'Michel', 'Romain']
 // prenoms.map( ( elt ) => console.log( elt ) )
 
-import Animal from "./Animal"
+import Administrateur from "./Administrateur";
+import Articles from "./Articles";
+import { permissions } from './util'
+
+const artOne = new Articles( 5 )
+const artTwo = new Articles( 2 )
+const artThree = new Articles( 3 )
+
+const julien = new Administrateur( "Boyer", "Julien", "julien@taiwa.fr",
+    "12334566", new Date( '1988-02-02' ), "Lyon", true, { longitude: 23.2222, latitude: 2233 },
+    1, 1, 1, 1, [artOne, artTwo, artThree],
+    [permissions.ecriture, permissions.lecture, permissions.execution, permissions.removing] )
+
+
+console.log( julien.getAge() )
+
+
+// alias 
+// function printName ( obj: { first: string; last?: string } ) {
+//     console.log( obj.first )
+// }
+// // Both OK
+// printName( { first: "Bob" } );
+// printName( { first: "Alice", last: "Alisson" } );
+
+
+julien.modifyPerms( "j.boyer69003@gmail.com", [permissions.ecriture, permissions.lecture] )
+console.log( julien )
+console.log( `La moyenne est de ${ julien.getMoyenneArticles() } ` )
+
+// console.log( julien )
+// import Animal from "./Animal"
 
 
 // const ages = [10, 22, 33, 44, 55];
@@ -104,8 +135,78 @@ import Animal from "./Animal"
 // console.log( square( 23 ) )
 // console.log( square() )
 
-let chien = new Animal( 2, "vert" )
-console.log( chien )
+// let chien = new Animal( 2, "vert" )
+// console.log( chien )
+// type alpha = {
+//     content: string
+// }
+
+// function err ( message: alpha ): never {
+//     throw new Error( message.content );
+// }
+
+// console.log( err( { content: "test" } ) )
+
+
+// function reverse ( s: String ): String {
+//     return s.split( "" ).reverse().join( "" );
+// }
+
+// reverse( "hello world" );
+
+// function greeter ( fn: ( a: string ) => void ) {
+//     fn( "Hello, World" );
+// }
+
+// function printToConsole ( s: string ) {
+//     console.log( s );
+// }
+
+// greeter( printToConsole );
 
 
 
+// function doSomething ( x: string | null ) {
+//     if ( x === null ) {
+//         // do nothing
+//         console.log( "Hello" )
+//     } else {
+//         console.log( "Hello, " + x.toUpperCase() );
+//     }
+// }
+// doSomething( "alpha" )
+// doSomething( null )
+// function compare (): "oui" | "non" {
+//     return "oui"
+// }
+
+
+// console.log( compare() )
+// function printText ( s: string, alignment: "left" | "right" | "center" ) {
+//     console.log( alignment)
+// }
+// printText( "G'day, mate", "center");
+
+// function printId ( id: number | string ) {
+//     console.log( "Your ID is: " + id );
+// }
+// // OK
+// printId( 101 );
+// // OK
+// printId( "202" );
+
+// function printName ( obj: { first: string; last?: string } ) {
+//     console.log( obj )
+// }
+// // Both OK
+// printName( { first: "Bob" } );
+// printName( { first: "Alice", last: "Alisson" } );
+
+
+// function printId ( id: number | string ) {
+//     console.log( "Your ID is: " + id );
+// }
+// // OK
+// printId( 101 );
+// // OK
+// printId( "202" );
